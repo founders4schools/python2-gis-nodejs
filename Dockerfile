@@ -3,6 +3,9 @@ FROM python:2.7
 # Install GEOS and GDAL
 RUN apt-get update && apt-get install -y libgeos-dev libgdal-dev python-gdal
 
+# Command lines utils that needs to be in the PATH
+RUN pip install coverage codecov fabric
+
 # Install Nodejs 6
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68576280 86E50310 && \
   echo "deb http://deb.nodesource.com/node_6.x jessie main" | tee /etc/apt/sources.list.d/nodesource.list && \
