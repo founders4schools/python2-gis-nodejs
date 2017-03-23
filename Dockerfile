@@ -11,3 +11,9 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68576280 86E50310 &
   
 # Allow Bower to run as root  : https://github.com/bower/bower/issues/1752#issuecomment-113455403
 RUN echo '{ "allow_root": true }' > /root/.bowerrc  
+
+# Install Heroku CLI
+RUN wget https://cli-assets.heroku.com/branches/stable/heroku-linux-amd64.tar.gz && \
+  mkdir -p /usr/local/lib /usr/local/bin && \
+  tar -xvzf heroku-linux-amd64.tar.gz -C /usr/local/lib && \
+  ln -s /usr/local/lib/heroku/bin/heroku /usr/local/bin/heroku
